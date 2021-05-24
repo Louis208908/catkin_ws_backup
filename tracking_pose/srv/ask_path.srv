@@ -1,0 +1,8 @@
+float64 now_x
+float64 now_y
+float64 goal_x
+float64 goal_y
+-------------
+float64[] nextPointX
+float64[] nextPointY
+float64[] nextPointDirection

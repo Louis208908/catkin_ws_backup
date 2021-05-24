@@ -1,0 +1,18 @@
+<launch>
+    <node pkg="nodelet" type="nodelet" name="nodelet_manager" args="manager"/>
+    <!-- camera node -->
+    
+ 
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch"/>
+    <!-- detect aruco markers -->
+    <node pkg="nodelet" clear_params="true" type="nodelet" name="aruco_detect" args="load aruco_pose/aruco_detect nodelet_manager">
+        <remap from="image_raw" to="/camera/color/image_raw"/>
+        <remap from="camera_info" to="/camera/color/camera_info"/>
+        <param name="length" value="0.7"/>
+    </node>
+
+   <node name = "CameraResult" pkg="aruco_pose" type = "CameraResult" output = "screen"/>
+   <param  name="XPose" type="int" value="520"/>
+   <param  name="YPose" type="int" value="400"/>
+   <param name = "cupDistance" type = "int" value = "50"/>
+</launch>

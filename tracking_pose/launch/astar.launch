@@ -1,0 +1,12 @@
+<launch>
+<include file="$(find simulation_env)/launch/A_star_map.launch"/>
+
+<node name="astar" pkg="tracking_pose" type="path" output="screen" args="-4.0 -4.0"/>
+
+<param name="goalX" type="double" value="4"/>
+<param name="goalY" type="double" value="4"/>
+
+<include file="$(find control_car)/launch/control_car.launch"/>
+
+
+</launch>
